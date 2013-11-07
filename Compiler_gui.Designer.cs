@@ -234,8 +234,8 @@
             // 
             // bw_update
             // 
-            this.bw_update.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bw_update_DoWork);
-            this.bw_update.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bw_update_RunWorkerCompleted);
+            //this.bw_update.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bw_update_DoWork);
+            //this.bw_update.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bw_update_RunWorkerCompleted);
             // 
             // Compiler
             // 

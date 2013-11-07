@@ -15,7 +15,7 @@ namespace WindowsForms_compiler
         private const string War1 = "Visual Studio 10 is not installed on your computer.";
         private const string War2 = "Visual Studio 11 is not installed on your computer.";
         public static bool Available;
-        public static string RemoteVer, currVer = "1.2.4";
+        public static string RemoteVer, currVer = "1.4.0";
         private readonly int count = Environment.ProcessorCount;
         private bool a, b, update = false, allow = false;
         private string build, comp, comp_n;
@@ -44,11 +44,11 @@ namespace WindowsForms_compiler
             {
                 if (Directory.Exists(target1) || (Directory.Exists(target2)))
                 {
-                    const string target3 = @"src\bindings\ScriptDev2\sql_mr\";
-                    const string target4 = @"src\bindings\ScriptDev2\scripts";
+                    const string target3 = @"src\bindings\I_ScriptDev2\sql_mr\";
+                    const string target4 = @"src\bindings\I_ScriptDev2\scripts";
                     if (!Directory.Exists(target3) || (!Directory.Exists(target4)))
                     {
-                        MessageBox.Show("\\src\\bindings\\ScriptDev2 Folder is empty.", "Warning", MessageBoxButtons.OK,
+                        MessageBox.Show("\\src\\bindings\\I_ScriptDev2 Folder is missing or empty.", "Warning", MessageBoxButtons.OK,
                                         MessageBoxIcon.Warning);
                     }
                 }
@@ -191,7 +191,7 @@ namespace WindowsForms_compiler
 
         private void StartCompile()
         {
-            const string cflag = "/DWIN32 /D_WINDOWS /W3 /Zm1000 /EHsc /GR";
+            const string cflag = "/DWIN32 /D_WINDOWS /W3 /EHsc /GR";
 
             if (build == "win32")
             {
@@ -203,7 +203,7 @@ namespace WindowsForms_compiler
                     "\" -DCMAKE_INSTALL_PREFIX=\"" + textBox_Selected_install_path.Text +
                     "\" -DUSE_FASTMM_MALLOC=1 -DUSE_STD_MALLOC=0 -DUSE_TBB_MALLOC=0 .. & call \"" +
                     textBox_Selected_compiler_path.Text + "VC\\vcvarsall.bat\" & MSBuild INSTALL.vcxproj /m:" + core +
-                    " /t:Rebuild /p:Configuration=Release;Platform=" + build + " & cd .. & Pause > nul", false);
+                    " /t:Rebuild /p:Configuration=Release;Platform=" + build + " & cd .. & echo. & echo Press any key to close... & Pause  > nul", false);
                 Application.Exit();
             }
 
@@ -217,7 +217,7 @@ namespace WindowsForms_compiler
                     "\" -DCMAKE_INSTALL_PREFIX=\"" + textBox_Selected_install_path.Text +
                     "\" -DUSE_FASTMM_MALLOC=1 -DUSE_STD_MALLOC=0 -DUSE_TBB_MALLOC=0 .. & call \"" +
                     textBox_Selected_compiler_path.Text + "VC\\vcvarsall.bat\" & MSBuild INSTALL.vcxproj /m:" + core +
-                    " /t:Rebuild /p:Configuration=Release;Platform=" + build + " & cd .. & Pause > nul", false);
+                    " /t:Rebuild /p:Configuration=Release;Platform=" + build + " & cd .. & echo. & echo Press any key to close... & Pause > nul", false);
                 Application.Exit();
             }
         }
